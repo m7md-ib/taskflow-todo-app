@@ -1,0 +1,81 @@
+/* ── Global Reset & Design Tokens ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Light mode palette — warm cream with deep ink */
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #EDE8DE;
+  --bg-card: #FFFDF7;
+  --bg-card-hover: #FFFEF9;
+  --text-primary: #1A1410;
+  --text-secondary: #6B6259;
+  --text-muted: #9E9389;
+  --accent: #E8533A;
+  --accent-hover: #D4432A;
+  --accent-soft: rgba(232, 83, 58, 0.12);
+  --success: #3DAA6E;
+  --success-soft: rgba(61, 170, 110, 0.12);
+  --border: rgba(26, 20, 16, 0.1);
+  --border-strong: rgba(26, 20, 16, 0.2);
+  --shadow-sm: 0 1px 3px rgba(26, 20, 16, 0.08);
+  --shadow-md: 0 4px 16px rgba(26, 20, 16, 0.10);
+  --shadow-lg: 0 8px 32px rgba(26, 20, 16, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #111009;
+  --bg-secondary: #1C1A14;
+  --bg-card: #221F18;
+  --bg-card-hover: #2A2720;
+  --text-primary: #F0EBE3;
+  --text-secondary: #A89E92;
+  --text-muted: #6E665C;
+  --accent: #F06448;
+  --accent-hover: #E8533A;
+  --accent-soft: rgba(240, 100, 72, 0.15);
+  --success: #4DC480;
+  --success-soft: rgba(77, 196, 128, 0.15);
+  --border: rgba(240, 235, 227, 0.08);
+  --border-strong: rgba(240, 235, 227, 0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+/* Focus outlines for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
