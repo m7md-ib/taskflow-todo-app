@@ -3,7 +3,7 @@
  * All fetch calls go through here to keep components clean.
  */
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 /**
  * Generic fetch wrapper with error handling.
@@ -31,7 +31,8 @@ const apiFetch = async (endpoint, options = {}) => {
 /** Fetch all tasks, with optional filters */
 export const fetchTasks = (params = {}) => {
   const query = new URLSearchParams();
-  if (params.status && params.status !== "all") query.set("status", params.status);
+  if (params.status && params.status !== "all")
+    query.set("status", params.status);
   if (params.search) query.set("search", params.search);
   const qs = query.toString() ? `?${query.toString()}` : "";
   return apiFetch(`/tasks${qs}`);
